@@ -1,0 +1,413 @@
+* {
+    box-sizing: border-box;
+}
+
+:root {
+ --color-ink: #1C1C1C;
+ --color-reverse: #FFFFF8;
+ --color-slate: #788C94;
+ --color-sky: #CBDAE0;
+ --color-seafoam: #C1E0D8;
+ --color-clay: #A16D5F;
+ --color-coral: #E0D7CC;
+ --color-mint: #D6ECD5;
+ --color-forest: #3B553F;
+ --color-sandalwood: #A18567;
+ --color-blush: #E0D8C1;
+ --size-s: 5px;
+ --size-m: 15px;
+ --size-l: 40px;
+ --size-xl: 80px;
+ --heading-font-family: 'Self Modern', serif;
+ --body-font-family: 'NB Akademie', Helvetica, sans-serif;
+ --utility-font-family: 'DM Mono', monospace, sans-serif;
+
+ --header-height: 80px;
+ --header-padding: 30px;
+ --content-height: calc(100vh - var(--header-height) - var(--ticker-height));
+
+ --ticker-height: 80px;
+ --ticker-text: "Select a preset to preview";
+}
+
+/* Font - Self Modern Regular */
+
+@font-face {
+    font-family: 'Self Modern';
+    src: url('assets/fonts/SelfModern-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Self Modern';
+    src: url('assets/fonts/SelfModern-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Self Modern';
+    src: url('assets/fonts/SelfModern-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Font - Self Modern Italic */
+
+@font-face {
+    font-family: 'Self Modern';
+    src: url('assets/fonts/SelfModern-Italic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Self Modern';
+    src: url('assets/fonts/SelfModern-Italic.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Self Modern';
+    src: url('assets/fonts/SelfModern-Italic.woff2') format('woff2');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+/* Font - NB Akademie Regular */
+
+@font-face {
+    font-family: 'NB Akademie';
+    src: url('assets/fonts/NBAkademieStd-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'NB Akademie';
+    src: url('assets/fonts/NBAkademieStd-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'NB Akademie';
+    src: url('assets/fonts/NBAkademieStd-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Font - NB Akademie Light */
+
+@font-face {
+    font-family: 'NB Akademie';
+    src: url('assets/fonts/NBAkademieStd-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'NB Akademie';
+    src: url('assets/fonts/NBAkademieStd-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'NB Akademie';
+    src: url('assets/fonts/NBAkademieStd-Light.woff2') format('woff2');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Font - DM Mono Regular */
+
+@font-face {
+    font-family: 'DM Mono';
+    src: url('assets/fonts/DMMono-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'DM Mono';
+    src: url('assets/fonts/DMMono-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'DM Mono';
+    src: url('assets/fonts/DMMono-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+html,
+body {
+    font-family: var(--body-font-family);
+    font-weight: 300;
+    color: var(--color-ink);
+    background-color: var(--color-reverse);
+    font-size: 1.1rem;
+    margin: 0;
+    padding: 0;
+    clear: both;
+    scroll-snap-type: y proximity;
+}
+
+body {
+    /* scroll-snap-type: y proximity;
+    scroll-padding: 0; */
+}
+
+/* Typography */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5 {
+    font-family: var(--heading-font-family);
+    font-weight: normal;
+}
+
+h1,
+.h1 {
+    font-size: 5rem;
+    line-height: 1;
+    margin: 0 0 1rem;
+}
+
+h2,
+.h2 {
+    font-size: 2rem;
+    line-height: 1;
+    margin: 0 0 1rem;
+}
+
+h5,
+.h5 {
+    font-style: italic;
+}
+
+h6,
+.h6 {
+    font-size: 1.3rem;
+    font-weight: 300;
+    margin: 0 0 1rem;
+}
+
+button {
+    background-color: transparent;
+    box-shadow: none;
+    border: 1px solid currentColor;
+    color: currentColor;
+    border-radius: 100%;
+    padding: var(--size-m);
+    min-width: 120px;
+}
+
+button:hover {
+    color: var(--color-ink);
+    background-color: var(--color-reverse);
+}
+
+.utility,
+button {
+    font-family: var(--utility-font-family);
+    text-transform: uppercase;
+    font-size: .6rem;
+    letter-spacing: .05rem;
+}
+
+/* Header */
+header {
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    z-index: 9;
+    color: #ffffff;
+    mix-blend-mode: difference;
+
+}
+
+header::before,
+header::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background-color: currentColor;
+}
+
+header::before {
+    left: var(--header-padding);
+}
+
+header::after {
+    right: var(--header-padding);
+}
+
+.logo-wrapper {
+    height: var(--header-height);
+    margin: 0 auto;
+    width: calc(100% - var(--header-padding) * 2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    border-bottom: 1px solid currentColor;
+}
+
+.logo {
+    width: 60px;
+    color: currentColor;
+}
+
+.content {
+    /* scroll-snap-type: y proximity;
+    scroll-padding: 0; */
+}
+
+
+
+/* Section Styling  */
+section {
+    --section-padding: var(--size-m);
+    scroll-snap-align: start;
+    padding: calc(var(--header-height) + var(--section-padding)) calc(var(--section-padding) + var(--header-padding)) var(--section-padding);
+    min-height: calc(100vh - var(--ticker-height));
+    max-height: calc(100vh - var(--ticker-height));
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: stretch;
+}
+
+.text-wrapper {
+    max-width: 960px;
+    flex-basis: 50%;
+    flex-shrink: 1;
+    flex-grow: 1;
+}
+
+.image-wrapper {
+    flex-basis: 50%;
+    flex-shrink: 1;
+    object-fit: cover;
+    overflow: hidden;
+    /* margin: 0 var(--size-l); */
+}
+
+.section-slate {
+    color: var(--color-ink);
+    background-color: var(--color-slate);
+}
+
+.section-clay {
+    color: var(--color-reverse);
+    background-color: var(--color-clay);
+}
+
+.section-mint {
+    color: var(--color-ink);
+    background-color: var(--color-mint);
+}
+
+.section-forest {
+    color: var(--color-reverse);
+    background-color: var(--color-forest);
+}
+
+/* Ticker Tape */
+.ticker-tape {
+    height: var(--ticker-height);
+    background-color: var(--color-slate);
+    color: var(--color-reverse);
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999999;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: nowrap;
+}
+
+.ticker-tape::before,
+.ticker-tape::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background-color: var(--color-reverse);
+}
+
+.ticker-tape::before {
+    top: 0;
+}
+
+.ticker-tape::after {
+    bottom: 0;
+}
+
+.ticker-text {
+    --icon-size: 20px;
+    flex-shrink: 0;
+    flex-grow: 0;
+    padding-right: calc(var(--size-m) * 2 + var(--icon-size));
+    animation: ticker-text 5s linear 0s infinite;
+}
+
+.ticker-text::before {
+    content: var(--ticker-text);
+}
+
+.ticker-text::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: var(--size-m);
+    width: var(--icon-size);
+    height: var(--icon-size);
+    color: red;
+    background-image: url("assets/star.svg");
+}
+
+@keyframes ticker-text {
+    from {
+        transform: translateX(0%);
+    }
+    to {
+        transform: translateX(-100%);
+    }
+}
