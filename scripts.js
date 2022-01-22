@@ -1,22 +1,14 @@
+const codeToggle = document.querySelector('#code-toggle');
+const codeDrawer = document.querySelector('#code-drawer');
+const codeDrawerOverlay = document.querySelector('#code-drawer-overlay');
 
+let toggleCodeDrawer = () => {
+    if (codeDrawer.classList.contains("open")){
+        codeDrawer.classList.remove('open');
+        return;
+    }
+    codeDrawer.classList.add('open');
+}
 
-document.addEventListener('DOMContentLoaded',function(){
-
-    let animatedElements = document.querySelector('.animate');
-
-    document.addEventListener('scroll',function(){
-        // console.log(window.scrollY);
-        // console.log(animatedElements);
-        animatedElements.forEach(element => {
-            if(element.scrollTop == 0) {
-                console.log("TOP");
-            }
-            
-        });
-
-    
-    });
-    
-});
-
-
+codeToggle.addEventListener('click',toggleCodeDrawer);
+codeDrawerOverlay.addEventListener('click',toggleCodeDrawer);
