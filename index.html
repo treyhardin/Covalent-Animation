@@ -20,13 +20,13 @@
                             <h3>Global Settings</h3>
                             <div class="code-preview utility">
                                 <p class="code-line">
-                                    <span class="code-label">--animation-duration: </span><span class="code-value">600ms;</span> 
+                                    <span class="code-label">--animation-duration: </span><span class="code-value" id="anim-duration">600ms</span>;
                                 </p>
                                 <p class="code-line">
-                                    <span class="code-label">--animation-duration-short: </span><span class="code-value">300ms;</span> 
+                                    <span class="code-label">--animation-duration-short: </span><span class="code-value" id="anim-duration-short">300ms</span>;
                                 </p>
                                 <p class="code-line">
-                                    <span class="code-label">--animation-easing: </span><span class="code-value">cubic-bezier(.6,0,.4,1);</span> 
+                                    <span class="code-label">--animation-easing: </span><span class="code-value" id="anim-easing">cubic-bezier(.6,0,.4,1)</span>;
                                 </p>
                             </div>
                         </div>
@@ -47,7 +47,7 @@
                             <h3>Text Loading</h3>
                             <div class="code-preview utility">
                                 <p class="code-line">
-                                    <span class="code-label">animation-duration: </span><span class="code-value">600ms;</span> 
+                                    <span class="code-label">animation-duration: </span><span class="code-value" >600ms;</span> 
                                 </p>
                                 <p class="code-line">
                                     <span class="code-label">animation-easing: </span><span class="code-value">cubic-bezier(.6,0,.4,1);</span> 
@@ -81,55 +81,72 @@
         <p class="ticker-text"></p>
     </div>
         <section class="section-forest">
-            <div class="text-wrapper">
-                <h1>Animation Reference</h1>
+            <div class="text-wrapper animate">
+                <h1><em>Just Good </em>Animations</h1>
                 <h6>Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</h6>
             </div>
-            <div class="text-wrapper animate">
+            <div class="text-wrapper">
                 <h2>Global Settings</h2>
 
                 <div class="form-wrapper">
 
                     <div class="form-field">
                         <div class="dropdown-selector">
-                            <label for="image-duration">Standard Duration</label>
-                            <select name="image-duration">
-                                <option hidden value="100">100ms</option>
-                                <option hidden value="300">300ms</option>
-                                <option hidden value="600" selected>600ms</option>
-                                <option hidden value="800">800ms</option>
-                                <option hidden value="1000">1000ms</option>
+                            <label for="anim-duration">Standard Duration</label>
+                            <select name="anim-duration" id="standard-duration" class="animation-variable">
+                                <option hidden value="100ms">100ms</option>
+                                <option hidden value="300ms">300ms</option>
+                                <option hidden value="600ms" selected>600ms</option>
+                                <option hidden value="800ms">800ms</option>
+                                <option hidden value="1000ms">1000ms</option>
                             </select>
                         </div>
                     </div> 
                     
                     <div class="form-field">
                         <div class="dropdown-selector">
-                            <label for="image-duration">Quick Duration</label>
-                            <select name="image-duration">
-                                <option hidden value="100">100ms</option>
-                                <option hidden value="300" selected>300ms</option>
-                                <option hidden value="600">600ms</option>
-                                <option hidden value="800">800ms</option>
-                                <option hidden value="1000">1000ms</option>
+                            <label for="anim-duration-short">Quick Duration</label>
+                            <select name="anim-duration-short" class="animation-variable">
+                                <option hidden value="100ms">100ms</option>
+                                <option hidden value="300ms" selected>300ms</option>
+                                <option hidden value="600ms">600ms</option>
+                                <option hidden value="800ms">800ms</option>
+                                <option hidden value="1000ms">1000ms</option>
                             </select>
                         </div>
                     </div> 
 
                     <div class="form-field">
                         <div class="dropdown-selector">
-                            <label for="image-easing">Easing</label>
-                            <select name="image-easing">
-                                <option hidden value="default">Default</option>
+                            <label for="anim-easing">Easing</label>
+                            <select name="anim-easing" class="animation-variable">
                                 <option hidden value="ease-out" selected>Ease-Out</option>
-                                <option hidden value="ease-out-quart">Ease-Out-Quart</option>
-                                <option hidden value="ease-in">Ease-In</option>
-                                <option hidden value="ease-in-quart">Ease-In-Quart</option>
+                                <option hidden value="cubic-bezier(0.25, 1, 0.5, 1)">Ease-Out Quart</option>
+                                <option hidden value="cubic-bezier(0.22, 1, 0.36, 1)">Ease-Out Quint</option>
+                                <option hidden value="cubic-bezier(0.16, 1, 0.3, 1)">Ease-Out Exponential</option>
+                                <option hidden value="ease-in-out" selected>Ease-In-Out</option>
+                                <option hidden value="cubic-bezier(0.76, 0, 0.24, 1)">Ease-In-Out Quart</option>
+                                <option hidden value="cubic-bezier(0.83, 0, 0.17, 1)">Ease-In-Out Quint</option>
+                                <option hidden value="cubic-bezier(0.87, 0, 0.13, 1)">Ease-In-Out Exponential</option>
+                                <option hidden value="cubic-bezier(0.68, -0.6, 0.32, 1.6)">Bouncy</option>
+                                
                             </select>
                         </div>
                     </div> 
 
-                    <button>Reload</button>
+                    <div class="form-field">
+                        <div class="dropdown-selector">
+                            <label for="load-style">Load Style</label>
+                            <select name="load-style">
+                                <option hidden value="load-fade">Fade</option>
+                                <option hidden value="load-fade-up" selected>Fade Up</option>
+                                <option hidden value="load-move-up">Move Up</option>
+                                <option hidden value="load-skew">Skew Up</option>
+                            </select>
+                        </div>
+                    </div> 
+
+                    <button class="button-reload">Reload</button>
 
                 </div>
 
@@ -140,14 +157,25 @@
             <div class="image-wrapper animate">
                 <img src="assets/HalfHelix_Berlin.jpg" alt="" />
             </div>
-            <div class="text-wrapper animate">
+            <div class="text-wrapper">
                 <h2>Image Loading</h2>
 
                 <div class="form-wrapper">
 
                     <div class="form-field">
-                        <label hidden for="image-load">Load Style</label>
                         <div class="dropdown-selector">
+                            <label for="image-load">Load Style</label>
+                            <select name="image-load">
+                                <option hidden value="volvo">Fade</option>
+                                <option hidden value="saab">Fade Up</option>
+                                <option hidden value="mercedes">Zoom</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-field">
+                        <div class="dropdown-selector">
+                            <label for="image-load">Load Style</label>
                             <select name="image-load">
                                 <option hidden value="volvo">Fade</option>
                                 <option hidden value="saab">Fade Up</option>
@@ -156,32 +184,7 @@
                         </div>
                     </div>
                     
-                    <div class="form-field">
-                        <label hidden for="image-easing">Easing</label>
-                        <div class="dropdown-selector">
-                            <select name="image-easing">
-                                <option hidden value="default">Default</option>
-                                <option hidden value="ease-out">Ease-Out</option>
-                                <option hidden value="ease-out-quart">Ease-Out-Quart</option>
-                                <option hidden value="ease-in">Ease-In</option>
-                                <option hidden value="ease-in-quart">Ease-In-Quart</option>
-                            </select>
-                        </div>
-                    </div> 
-                    
-                    <div class="form-field">
-                        <label hidden for="image-duration">Duration</label>
-                        <div class="dropdown-selector">
-                            <select name="image-duration">
-                                <option hidden value="100">100ms</option>
-                                <option hidden value="300">300ms</option>
-                                <option hidden value="600">600ms</option>
-                                <option hidden value="800">800ms</option>
-                                <option hidden value="1000">1000ms</option>
-                            </select>
-                        </div>
-                    </div> 
-                    <button>Reload</button>
+                    <button class="button-reload">Reload</button>
 
                 </div>
 
@@ -196,41 +199,15 @@
                 <div class="form-wrapper">
 
                     <div class="form-field">
-                        <label hidden for="image-load">Load Style</label>
+                        <label hidden for="text-load">Load Style</label>
                         <div class="dropdown-selector">
-                            <select name="image-load">
+                            <select name="text-load">
                                 <option hidden value="volvo">Fade</option>
                                 <option hidden value="saab">Fade Up</option>
                                 <option hidden value="mercedes">Zoom</option>
                             </select>
                         </div>
                     </div>
-                    
-                    <div class="form-field">
-                        <label hidden for="image-easing">Easing</label>
-                        <div class="dropdown-selector">
-                            <select name="image-easing">
-                                <option hidden value="default">Default</option>
-                                <option hidden value="ease-out">Ease-Out</option>
-                                <option hidden value="ease-out-quart">Ease-Out-Quart</option>
-                                <option hidden value="ease-in">Ease-In</option>
-                                <option hidden value="ease-in-quart">Ease-In-Quart</option>
-                            </select>
-                        </div>
-                    </div> 
-                    
-                    <div class="form-field">
-                        <label hidden for="image-duration">Duration</label>
-                        <div class="dropdown-selector">
-                            <select name="image-duration">
-                                <option hidden value="100">100ms</option>
-                                <option hidden value="300">300ms</option>
-                                <option hidden value="600">600ms</option>
-                                <option hidden value="800">800ms</option>
-                                <option hidden value="1000">1000ms</option>
-                            </select>
-                        </div>
-                    </div> 
                     <button>Reload</button>
 
                 </div>

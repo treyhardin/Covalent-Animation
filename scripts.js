@@ -25,6 +25,51 @@ let drawerToggle = (toggle, drawer) => {
 }
 
 
+// Animate Stuff
+let animatedElements = document.querySelectorAll('.animate');
+let viewportThreshold = 1.5;
+
+let isInViewport = function (element) {
+    var bounding = element.getBoundingClientRect();
+    return (
+        bounding.top >= 0 &&
+        bounding.left >= 0 &&
+        bounding.bottom <= (window.innerHeight * viewportThreshold || document.documentElement.clientHeight * viewportThreshold) &&
+        bounding.right <= (window.innerWidth || document.documentElement.clientWidth)
+    );
+};
+
+window.addEventListener('scroll', (e) => {
+    animatedElements.forEach(element => {
+        if(isInViewport(element)) {
+            element.classList.add('in-view');
+        }
+    });
+});
+
+// Reload DOM Elements 
+let reloadButtons = document.querySelectorAll('.button-reload');
+
+let reloadContent = () => {
+    animatedElements.forEach(element => {
+
+        let initialTransition = element.style.transition;
+        element.style.transition = "none";
+        element.classList.remove('in-view');
+
+        if(isInViewport(element)) {
+            element.style.transition = initialTransition;
+            element.classList.add('in-view');
+        }
+    });
+};
+
+reloadButtons.forEach(button => {
+    button.addEventListener('click', reloadContent, false);
+});
+
+
+
 
 // Code Drawer Toggle
 
@@ -34,11 +79,9 @@ drawerToggle(codeToggle, codeDrawer);
 
 
 
-// Override Dropdown
-
 window.addEventListener('load', () => {
 
-    //
+    // Override Dropdown
 
     let dropdownElements = document.querySelectorAll('.dropdown-selector');
 
@@ -67,9 +110,52 @@ window.addEventListener('load', () => {
             // Change Value on Click
             newOptionEl.addEventListener('click', () => {
                 defaultDropdown.value = option.value;
+                updateAnimationPreset(defaultDropdown, option.value);
+                reloadContent();
             });
         });
 
     });
 });
+
+
+// Get Field Values
+
+let selectors = document.querySelectorAll('select');
+let selections = new Map();
+let root = document.documentElement;
+
+let setVariables = () => {
+    selectors.forEach(selector => {
+        updateAnimationPreset(selector, selector.value);
+        // selections.set(selector.name, selector.value);
+    });
+}
+
+let updateAnimationPreset = (element, value) => {
+    selections.set(element.name, value);
+
+    // Update Display
+    let presetDisplay = document.getElementById(element.name);
+    if (presetDisplay) {
+        presetDisplay.innerHTML = value;
+    }
+    
+
+    // Update CSS Value or Class
+    if (element.classList.contains('animation-variable')) {
+        root.style.setProperty(`--${element.name}`, value);
+    } else {
+        animatedElements.forEach(animatedElement => {
+            var fieldOptions = element.querySelectorAll('option');
+            fieldOptions.forEach(option => {
+                animatedElement.classList.remove(option.value);
+            });
+            animatedElement.classList.add(value);
+        });
+    }
+}
+
+setVariables();
+
 

@@ -58,6 +58,7 @@
  --anim-duration-default: 600ms;
  --anim-duration-short-default: 300ms;
  --anim-easing-default: cubic-bezier(.6,0,.4,1);
+ --anim-movement: 60px;
 
  --anim-easing: var(--anim-easing-default);
  --anim-duration: var(--anim-duration-default);
@@ -225,9 +226,10 @@ h5,
 
 h1,
 .h1 {
-    font-size: 5rem;
-    line-height: 1;
+    font-size: 6rem;
+    line-height: 0.9;
     margin: 0 0 1rem;
+    letter-spacing: -0.3rem;
 }
 
 h2,
@@ -424,6 +426,8 @@ label {
     pointer-events: none;
     z-index: 8;
     transition: all var(--transition-short);
+    max-height: 30vh;
+    overflow-y: scroll;
     /* visibility: hidden; */
 }
 
@@ -729,4 +733,28 @@ section {
     to {
         transform: translateX(-100%);
     }
+}
+
+/* -------- Global Animation -------- */
+
+.animate {
+    transition: all var(--transition-default);
+}
+
+.animate.load-fade {
+    opacity: 0;
+}
+
+.animate.load-fade.in-view {
+    opacity: 1;
+}
+
+.animate.load-fade-up {
+    opacity: 0;
+    transform: translateY(var(--anim-movement));
+}
+
+.animate.load-fade-up.in-view {
+    opacity: 1;
+    transform: translateY(0);
 }
