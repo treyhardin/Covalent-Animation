@@ -1,0 +1,418 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+
+  /* Fonts  */
+  --heading-font-family: 'Self Modern', serif;
+  --body-font-family: 'NB Akademie', Helvetica, sans-serif;
+  --utility-font-family: 'DM Mono', monospace, sans-serif;
+
+  /* Colors  */
+  --color-ink: #1C1C1C;
+  --color-reverse: #FFFFF8;
+  --color-light: #eeeeee;
+  --color-slate: #788C94;
+  --color-sky: #CBDAE0;
+  --color-seafoam: #C1E0D8;
+  --color-clay: #A16D5F;
+  --color-coral: #E0D7CC;
+  --color-mint: #D6ECD5;
+  --color-forest: #3B553F;
+  --color-sandalwood: #A18567;
+  --color-blush: #E0D8C1;
+  --color-black: #000;
+  --color-white: #fff;
+
+  /* Size  */
+  --size-s: 5px;
+  --size-m: 15px;
+  --size-l: 40px;
+  --size-xl: 80px;
+
+  /* Border  */
+  --border-width: 1px;
+  --border-inherit: var(--border-width) solid currentColor;
+
+  /* Forms */
+  --field-height: 60px;
+
+  /* Buttons */
+  --button-height: var(--field-height);
+
+  /* Interaction */
+  --color-ui: var(--color-slate);
+  --color-ui-hover: var(--color-forest);
+
+  /* Layout */
+  --page-padding: 30px;
+
+  /* Animation */
+  --anim-easing: cubic-bezier(0.22, 1, 0.36, 1);
+  --anim-duration: 600ms;
+  --anim-default: var(--anim-duration) var(--anim-easing);
+
+}
+
+
+/* Font Imports */
+
+@font-face {
+  font-family: 'Self Modern';
+  src: url('assets/fonts/SelfModern-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Self Modern';
+  src: url('assets/fonts/SelfModern-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Self Modern';
+  src: url('assets/fonts/SelfModern-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Self Modern';
+  src: url('assets/fonts/SelfModern-Italic.ttf') format('truetype');
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Self Modern';
+  src: url('assets/fonts/SelfModern-Italic.woff') format('woff');
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Self Modern';
+  src: url('assets/fonts/SelfModern-Italic.woff2') format('woff2');
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'NB Akademie';
+  src: url('assets/fonts/NBAkademieStd-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'NB Akademie';
+  src: url('assets/fonts/NBAkademieStd-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'NB Akademie';
+  src: url('assets/fonts/NBAkademieStd-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'NB Akademie';
+  src: url('assets/fonts/NBAkademieStd-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'NB Akademie';
+  src: url('assets/fonts/NBAkademieStd-Light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'NB Akademie';
+  src: url('assets/fonts/NBAkademieStd-Light.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'DM Mono';
+  src: url('assets/fonts/DMMono-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'DM Mono';
+  src: url('assets/fonts/DMMono-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'DM Mono';
+  src: url('assets/fonts/DMMono-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+html {
+  background-color: var(--color-clay);
+}
+
+body {
+  margin: 0;
+  font-family: var(--body-font-family), Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: var(--body-font-family);
+  font-weight: 400;
+  color: var(--color-ink);
+  background-color: var(--color-reverse);
+  font-size: 1.1rem;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* --- Typography --- */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5 {
+    font-family: var(--heading-font-family);
+    font-weight: normal;
+}
+
+h1,
+.h1 {
+    font-size: 6rem;
+    line-height: 0.9;
+    margin: 0 0 1rem;
+    letter-spacing: -0.3rem;
+}
+
+h2,
+.h2 {
+    font-size: 2rem;
+    line-height: 1;
+    margin: 0 0 1rem;
+}
+
+h3,
+.h3 {
+    font-size: 1.2rem;
+    line-height: 1;
+    margin: 0 0 1rem;
+}
+
+h5,
+.h5 {
+    font-style: italic;
+}
+
+h6,
+.h6 {
+    font-size: 1.3rem;
+    font-weight: 400;
+    margin: 0 0 1rem;
+    line-height: 1.1;
+    letter-spacing: -0.05rem;
+}
+
+p {
+    margin: 0 0 1rem 0;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.utility,
+label,
+button {
+    font-family: var(--utility-font-family);
+    text-transform: uppercase;
+    font-size: .6rem;
+    letter-spacing: .05rem;
+}
+
+/* Buttons  */
+button {
+  height: var(--button-height);
+  border: none;
+  background-color: var(--color-ui);
+  color: var(--color-reverse);
+  cursor: pointer;
+  transition: background-color var(--anim-default);
+}
+
+button:hover {
+  background-color: var(--color-ui-hover);
+}
+
+/* Header  */
+
+.App-header {
+  position: fixed;
+  top: 0;
+  left: var(--page-padding);
+  right: var(--page-padding);
+  padding: var(--size-m);
+  border-bottom: var(--border-inherit);
+  display: flex;
+  flex-direction: row;
+  justify-content: stretch;
+  align-items: center;
+  z-index: 10;
+}
+
+.App-header > *:first-child {
+  align-items: start;
+}
+
+.App-header > *:last-child {
+  align-items: end;
+}
+
+.code-toggle {
+  padding: var(--size-m);
+  height: unset;
+  border: none;
+  border-radius: var(--size-s);
+  color: var(--color-reverse);
+  background-color: var(--color-ui-hover);
+}
+
+.code-toggle:hover {
+  background-color: var(--color-ui);
+}
+
+.logo-wrapper {
+  flex-grow: 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo {
+  width: 50px;
+}
+
+
+/* Layout  */
+
+.content {
+  margin: 0 var(--page-padding);
+  border-left: var(--border-inherit);
+  border-right: var(--border-inherit);
+  min-height: 100vh;
+}
+
+section {
+  padding: var(--page-padding);
+  min-height: 100vh;
+}
+
+.section-split {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: stretch;
+}
+
+.section-split > * {
+  flex-basis: calc(50% - (var(--page-padding) / 2));
+  flex-shrink: 1;
+}
+
+
+/* --- Forms --- */
+
+.form-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-inner {
+  max-width: 400px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+}
+
+.field-wrapper {
+  position: relative;
+  border: var(--border-inherit);
+  height: var(--field-height);
+  display: flex;
+  flex-direction: row;
+  justify-content: stretch;
+  align-items: center;
+  background-color: var(--color-white);
+}
+
+.field-wrapper label {
+  position: absolute;
+  top: var(--size-s);
+  left: var(--size-m);
+}
+
+.field-wrapper p {
+  margin: 0;
+}
+
+/* Text Wrapper  */
+
+.text-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+}
+
+
+.animate.fade {
+  opacity: 0;
+  transition: all var(--anim-default);
+}
+
+.animate.fade.visible {
+  opacity: 1;
+}
