@@ -44,14 +44,20 @@
   /* Interaction */
   --color-ui: var(--color-slate);
   --color-ui-hover: var(--color-forest);
+  --ui-duration: 300ms;
+  --anim-ui: var(--ui-duration) var(--anim-easing);
+  --icon-size: 16px;
 
   /* Layout */
+  --header-height: 80px;
   --page-padding: 30px;
 
   /* Animation */
   --anim-easing: cubic-bezier(0.22, 1, 0.36, 1);
   --anim-duration: 600ms;
   --anim-default: var(--anim-duration) var(--anim-easing);
+  --anim-movement: 80px;
+  --anim-skew: 0deg, 5deg;
 
 }
 
@@ -213,13 +219,14 @@ h5,
 .h5 {
     font-family: var(--heading-font-family);
     font-weight: normal;
+    margin: 0 0 1rem;
+
 }
 
 h1,
 .h1 {
     font-size: 6rem;
     line-height: 0.9;
-    margin: 0 0 1rem;
     letter-spacing: -0.3rem;
 }
 
@@ -237,8 +244,16 @@ h3,
     margin: 0 0 1rem;
 }
 
+h4,
+.h4 {
+    font-size: 1rem;
+    line-height: 1;
+    margin: 0 0 1rem;
+}
+
 h5,
 .h5 {
+    font-size: 08.rem;
     font-style: italic;
 }
 
@@ -267,6 +282,7 @@ button {
     text-transform: uppercase;
     font-size: .6rem;
     letter-spacing: .05rem;
+    margin: 0;
 }
 
 /* Buttons  */
@@ -281,54 +297,6 @@ button {
 
 button:hover {
   background-color: var(--color-ui-hover);
-}
-
-/* Header  */
-
-.App-header {
-  position: fixed;
-  top: 0;
-  left: var(--page-padding);
-  right: var(--page-padding);
-  padding: var(--size-m);
-  border-bottom: var(--border-inherit);
-  display: flex;
-  flex-direction: row;
-  justify-content: stretch;
-  align-items: center;
-  z-index: 10;
-}
-
-.App-header > *:first-child {
-  align-items: start;
-}
-
-.App-header > *:last-child {
-  align-items: end;
-}
-
-.code-toggle {
-  padding: var(--size-m);
-  height: unset;
-  border: none;
-  border-radius: var(--size-s);
-  color: var(--color-reverse);
-  background-color: var(--color-ui-hover);
-}
-
-.code-toggle:hover {
-  background-color: var(--color-ui);
-}
-
-.logo-wrapper {
-  flex-grow: 3;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.logo {
-  width: 50px;
 }
 
 
@@ -407,12 +375,27 @@ section {
   align-items: stretch;
 }
 
-
-.animate.fade {
+.animate {
   opacity: 0;
-  transition: all var(--anim-default);
+  transition: none;
 }
 
 .animate.fade.visible {
   opacity: 1;
+  transition: all var(--anim-default);
+}
+
+.animate.fade-up {
+  opacity: 0;
+  transform: translateY(var(--anim-movement));
+}
+
+.animate.skew-up {
+  transform: translateY(var(--anim-movement)) skew(var(--anim-skew));
+}
+
+.animate.visible {
+  opacity: 1;
+  transform: none;
+  transition: all var(--anim-default);
 }

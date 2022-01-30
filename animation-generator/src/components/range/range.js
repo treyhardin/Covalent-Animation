@@ -5,7 +5,7 @@ import './range.css';
 export default function Range(props) {
 
     function handleChange(event) {
-        props.setAnimDuration(event.target.value);
+        props.setValue(event.target.value);
       }
 
     return (
@@ -17,10 +17,10 @@ export default function Range(props) {
                 min={props.min} 
                 max={props.max}
                 step="100"
-                value={props.animDuration}
+                value={props.value}
                 onChange={handleChange}>
             </input>
-            <p>{props.animDuration}ms</p>
+            <p>{props.value}ms</p>
         </div>
     )
 }

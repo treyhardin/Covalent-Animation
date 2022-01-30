@@ -1,7 +1,11 @@
 var styleOptions = [
     { value: 'fade', text: 'Fade' },
     { value: 'fade-up', text: 'Fade Up' },
-    { value: 'skew-up', text: 'Skew Up' }
+    { 
+        value: 'skew-up', 
+        text: 'Skew Up',
+        style: 'transform: translateY(var(--anim-movement)) skew(var(--anim-skew)); opacity: 1;' 
+    }
 ]
 
 var easingOptions = [

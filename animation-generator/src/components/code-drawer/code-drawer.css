@@ -1,0 +1,44 @@
+.code-drawer {
+    position: fixed;
+    background-color: var(--color-ui-hover);
+    color: var(--color-reverse);
+    /* width: calc(100vw - var(--page-padding)); */
+    width: 50%;
+    height: 100vh;
+    z-index: 999;
+    padding: 0;
+    transition: var(--anim-default);
+    transform: translateX(-100%);
+}
+
+.code-drawer.visible {
+    transition: var(--anim-default);
+    transform: translateX(0%);
+}
+
+.drawer-header {
+    height: var(--header-height);
+    border-bottom: var(--border-inherit);
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 calc(var(--page-padding) * 2);
+}
+
+.drawer-header svg {
+    width: var(--icon-size);
+    margin: var(--size-m);
+}
+
+.drawer-close {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.drawer-content {
+    padding: var(--page-padding) calc(var(--page-padding) * 2)
+}

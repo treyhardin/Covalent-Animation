@@ -23,7 +23,7 @@
     opacity: 0;
     max-height: 30vh;
     overflow-y: scroll;
-    transition: all var(--anim-default);
+    transition: all var(--anim-ui);
     pointer-events: none;
 }
 
@@ -47,11 +47,11 @@
 }
 
 .dropdown-icon {
-    width: 16px;
+    width: var(--icon-size);
     position: absolute;
     right: var(--size-m);
     transform: rotate(0deg);
-    transition: all var(--anim-default);
+    transition: all var(--anim-ui);
 }
 
 .dropdown-wrapper.active .dropdown-icon {
