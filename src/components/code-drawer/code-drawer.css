@@ -11,6 +11,12 @@
     transform: translateX(-100%);
 }
 
+@media screen and (max-width: 960px) {
+    .code-drawer {
+        width: calc(100vw - var(--page-padding));
+    }
+}
+
 .code-drawer.visible {
     transition: var(--anim-default);
     transform: translateX(0%);
@@ -40,5 +46,7 @@
 }
 
 .drawer-content {
-    padding: var(--page-padding) calc(var(--page-padding) * 2)
+    padding: var(--page-padding) calc(var(--page-padding) * 2);
+    height: calc(100vh - var(--header-height));
+    overflow-y: scroll;
 }

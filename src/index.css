@@ -268,6 +268,52 @@ h6,
     letter-spacing: -0.05rem;
 }
 
+@media screen and (max-width: 960px) {
+  h1,
+  .h1 {
+      font-size: 4rem;
+      line-height: 0.9;
+      letter-spacing: -0.2rem;
+  }
+
+  h2,
+  .h2 {
+      font-size: 1.6rem;
+      line-height: 1;
+      margin: 0 0 1rem;
+      font-style: italic;
+  }
+
+  h3,
+  .h3 {
+      font-size: 1.2rem;
+      line-height: 1;
+      margin: 0 0 1rem;
+  }
+
+  h4,
+  .h4 {
+      font-size: 1rem;
+      line-height: 1;
+      margin: 0 0 1rem;
+  }
+
+  h5,
+  .h5 {
+      font-size: 08.rem;
+      font-style: italic;
+  }
+
+  h6,
+  .h6 {
+      font-size: 1.3rem;
+      font-weight: 400;
+      margin: 0 0 1rem;
+      line-height: 1.1;
+      letter-spacing: -0.05rem;
+  }
+}
+
 p {
     margin: 0 0 1rem 0;
 }
@@ -322,6 +368,12 @@ section {
   min-height: 100vh;
 }
 
+@media screen and (max-width: 960px) {
+  section {
+    padding: calc(var(--page-padding) + var(--header-height)) var(--page-padding) var(--page-padding) var(--page-padding);
+  }
+}
+
 .section-split {
   display: flex;
   flex-direction: row;
@@ -332,6 +384,18 @@ section {
 .section-split > * {
   flex-basis: calc(50% - (var(--page-padding) / 2));
   flex-shrink: 1;
+}
+
+@media screen and (max-width: 960px) {
+  .section-split {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .section-split > * {
+    width: 100%;
+  }
 }
 
 
@@ -381,7 +445,15 @@ section {
   flex-direction: column;
   justify-content: center;
   align-items: stretch;
+  margin-bottom: var(--size-m);
 }
+
+@media screen and (max-width: 960px) {
+  .text-wrapper {
+    max-width: 400px;
+  }
+}
+
 
 .animate {
   opacity: 0;
