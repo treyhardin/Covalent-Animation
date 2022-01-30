@@ -1,10 +1,32 @@
 var styleOptions = [
-    { value: 'fade', text: 'Fade' },
-    { value: 'fade-up', text: 'Fade Up' },
+    { 
+        value: 'fade', 
+        text: 'Fade',
+        style: {
+            opacity: 0,
+            transition: 'all var(--anim-default)'
+        }
+        
+    },
+    { 
+        value: 'fade-up', 
+        text: 'Fade Up',
+        style: {
+            opacity: 0,
+            transform: 'translateY(var(--anim-movement))',
+            transition: 'all var(--anim-default)'  
+        }
+        
+    },
     { 
         value: 'skew-up', 
         text: 'Skew Up',
-        style: 'transform: translateY(var(--anim-movement)) skew(var(--anim-skew)); opacity: 1;' 
+        style: {
+            opacity: 0,
+            transform: 'translateY(var(--anim-movement)) skew(var(--anim-skew))',
+            transition: 'all var(--anim-default)' 
+        }
+        
     }
 ]
 

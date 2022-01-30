@@ -10,7 +10,7 @@ export function useIntersection(element) {
         return {
             root: null,
             rootMargin: '0px',
-            threshold: 0.3
+            threshold: 0.8
         }
     }, [])
 

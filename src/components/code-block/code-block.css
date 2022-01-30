@@ -51,37 +51,16 @@
     width: var(--icon-size);
 }
 
-.variable-item {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-}
-
-.variable-item p{
-    margin-bottom: 0;
-}
-
-
-
-.variable-label {
-    color: var(--color-ui);
-}
-
 .code-info-block {
     background-color: rgba(255, 255, 255, .1);
     padding: var(--size-m);
     border-radius: var(--size-s);
 }
 
-.class-item {
-    margin-bottom: var(--size-m);
-}
 
-.class-item p {
-    margin-bottom: var(--size-s);
-}
-
-.class-value {
-    margin-left: var(--size-l);
+pre {
+    page-break-inside: avoid;
+    overflow: auto;
+    word-wrap: break-word;
+    margin: var(--size-s) 0;
 }

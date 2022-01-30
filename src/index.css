@@ -200,6 +200,7 @@ body {
   font-size: 1.1rem;
 }
 
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
@@ -235,6 +236,7 @@ h2,
     font-size: 2rem;
     line-height: 1;
     margin: 0 0 1rem;
+    font-style: italic;
 }
 
 h3,

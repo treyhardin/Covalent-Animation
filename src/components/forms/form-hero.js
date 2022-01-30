@@ -12,7 +12,7 @@ export default function FormHero(props) {
     return (
         <div className="form-wrapper">
             <div className="form-inner">
-                <h3>Global Settings</h3>
+                <h2>Global Settings</h2>
                 <Dropdown 
                     name="anim-style" 
                     label="Style" 

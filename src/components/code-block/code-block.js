@@ -1,28 +1,35 @@
 import { useRef, useEffect, useState } from "react";
+import { styleOptions } from "../options";
 import './code-block.css';
 
 
 export default function CodeBlock(props) {
 
     const [ copyState, setCopyState ] = useState('Copy');
-    const [ clipboardContents, setClipboard ] = useState('Copy');
+    const [ clipboardState, setClipboard ] = useState('Copy');
+    
+    let clipboardValue;
+    const codeBlock = useRef();
 
-    const clipboardValue = useRef();
-    let clipboardText;
     
     function handleClick() {
         setCopyState('Copied!');
         setTimeout(() => {
             setCopyState('Copy');
         }, 2000);
-        console.log(clipboardContents.current);
-        navigator.clipboard.writeText(clipboardContents);
+        navigator.clipboard.writeText(clipboardValue);
+        console.log(codeBlock.textContent);
     }
 
 
-    useEffect(() => {
-        setClipboard(clipboardValue);
-      }, [clipboardValue]);
+    // useEffect(() => {
+    //     setClipboard(clipboardState);
+    //     let codeLines = document.querySelectorAll('.code-item');
+    //     codeLines.forEach(item => {
+    //         clipboardValue = clipboardValue + item.textContent;
+    //     });
+    //     console.log(clipboardValue);
+    //   }, [clipboardState]);
 
 
     const blockContent = props.content;
@@ -36,7 +43,7 @@ export default function CodeBlock(props) {
             </div>
 
             
-                <div className="code-block-inner code" ref={clipboardValue}>
+                <div className="code-block-inner code" ref={codeBlock}>
 
                     <a className="clipboard-button" onClick={handleClick}>
                         <p className="clipboard-label utility">{copyState}</p>
@@ -48,23 +55,41 @@ export default function CodeBlock(props) {
                     {props.type == 'variable' &&
                         blockContent.map((codeLine,index) => {
                             return (
-                                <div className="variable-item" key={index}>
-                                    <p className="variable-label">{codeLine.label}: &nbsp;</p>
-                                    <p className="variable-value">{codeLine.value}</p>
+                                <div className="code-item" key={index}>
+                                    <pre className="code-parameter-item">{codeLine.value}</pre>
                                 </div>
                             );
                         }
                     )}
-
+            
                     {props.type == 'class' &&
+                    
                         blockContent.map((codeLine,index) => {
+
+                            console.log(blockContent)
+
+                            let styleArray = [];
+
+                            let styleObject = codeLine.styles[0].style;
+                            for (const styleParameter in styleObject) {
+                                styleArray.push(styleParameter + ' : ' + styleObject[styleParameter])
+                            };
+
+                            const styleItems = styleArray.map((parameter) => {
+                                console.log(parameter);
+                                return (
+                                    <pre className="code-parameter-item">&#9;&#9;{parameter}</pre>
+                                );
+                            });
+
                             return (
-                                <div className="class-item" key={index}>
-                                    <p className="class-label">{codeLine.label} &#123;</p>
-                                    <p className="class-value">{codeLine.value}</p>
-                                    <p>&#125;</p>
+                                <div className="code-item" key={index}>
+                                    <pre>{codeLine.label} &#123;</pre>
+                                    <div className="code-parameters">{styleItems}</div>
+                                    <pre>&#125;</pre>
                                 </div>
-                            );
+                            )
+                            
                         }
                     )}
                     
@@ -78,8 +103,8 @@ export default function CodeBlock(props) {
                         blockInfo.map((infoLine,index) => {
                             return (
                                 <div className="class-item" key={index}>
-                                    <p className="class-label">{infoLine.label} &#123;</p>
-                                    <p className="class-value">{infoLine.value}</p>
+                                    <pre className="class-label">{infoLine.label} &#123;</pre>
+                                    <pre className="class-value">&#9;&#9;{infoLine.value}</pre>
                                     <p>&#125;</p>
                                 </div>
                             );
