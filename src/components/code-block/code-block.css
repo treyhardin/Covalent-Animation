@@ -3,6 +3,7 @@
 }
 
 .code-block-inner {
+    position: relative;
     background-color: var(--color-reverse);
     color: var(--color-ink);
     border-radius: var(--size-s);
@@ -15,16 +16,39 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    margin: 0 0 var(--size-m);
 }
 
 .block-title {
     margin: 0;
 }
 
-.clipboard-button{
-    width: var(--icon-size);
-    padding: var(--size-m) 0  var(--size-m)  var(--size-m);
+.clipboard-button {
+    position: absolute;
+    top: var(--size-m);
+    right: var(--size-m);
+    padding: 0;
+    color: var(--color-ui-hover);
     box-sizing: content-box;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    cursor: pointer;
+}
+
+.clipboard-label {
+    margin: 0 var(--size-s) 0 0;
+    opacity: 0;
+    transition: all var(--anim-default);
+}
+
+.clipboard-button:hover .clipboard-label {
+    opacity: 1;
+}
+
+.clipboard-button svg {
+    width: var(--icon-size);
 }
 
 .variable-item {

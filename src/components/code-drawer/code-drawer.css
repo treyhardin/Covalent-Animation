@@ -29,7 +29,7 @@
 
 .drawer-header svg {
     width: var(--icon-size);
-    margin: var(--size-m);
+    margin: var(--size-m) var(--size-m) var(--size-m) 0;
 }
 
 .drawer-close {

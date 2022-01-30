@@ -10,7 +10,7 @@ import SectionHero from './components/sections/section-hero';
 
 function App() {
 
-  const [ isDrawerOpen, setDrawerOpen ] = useState(true);
+  const [ isDrawerOpen, setDrawerOpen ] = useState(false);
 
   const openDrawer = () => {
     setDrawerOpen(true);

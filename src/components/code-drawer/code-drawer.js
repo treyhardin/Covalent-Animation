@@ -10,9 +10,6 @@ export default function CodeDrawer(props) {
     const animateClass = 'animate';
     const nameTransition = '--anim-default';
 
-    // const classElement = document.getElementsByClassName(animateClass);
-    // const styles = window.getComputedStyle(classElement);
-
     const { settings, changeSetting } = useContext(GlobalContext);
     
     function handleClick() {
@@ -64,8 +61,8 @@ export default function CodeDrawer(props) {
                 <p className="utility">Code Preview</p>
             </div>
             <div className="drawer-content">
-                <CodeBlock title="Variables" type="variable" content={globalCode} infoLabel="Example" info={globalExample} />
-                <CodeBlock title="Load Style" type="class" content={styleCode} infoLabel="Note" info={styleExample} />
+                <CodeBlock title="Variables" label="duration, easing" type="variable" content={globalCode} infoLabel="Example" info={globalExample} />
+                <CodeBlock title="Load Style" label={settings.style} type="class" content={styleCode} infoLabel="Note" info={styleExample} />
                 {/* <CodeBlock title="Load Style" /> */}
                 {/* <CodeBlock title="Easing" />
                 <CodeBlock title="Duration" /> */}
