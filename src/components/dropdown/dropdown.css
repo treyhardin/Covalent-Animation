@@ -27,6 +27,12 @@
     pointer-events: none;
 }
 
+@media (hover: none) and (pointer: coarse) and (max-width: 960) {
+    .dropdown-menu {
+        display: none;
+    }
+}
+
 .dropdown-wrapper.active .dropdown-menu {
     opacity: 1;
     pointer-events: initial;
