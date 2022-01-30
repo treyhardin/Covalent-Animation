@@ -285,6 +285,12 @@ button {
     margin: 0;
 }
 
+.code {
+  font-family: var(--utility-font-family);
+  font-size: 0.8rem;
+  letter-spacing: -0.01rem;
+}
+
 /* Buttons  */
 button {
   height: var(--button-height);

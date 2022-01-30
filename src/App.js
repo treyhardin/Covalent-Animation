@@ -27,6 +27,7 @@ function App() {
         <CodeDrawer drawerAction={closeDrawer} drawerState={isDrawerOpen} />
         <div className="content">
           <SectionHero />
+          <SectionHero />
         </div>
       </ContextProvider>
     </div>

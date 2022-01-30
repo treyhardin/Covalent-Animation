@@ -36,7 +36,7 @@ export default function CodeBlock(props) {
             </div>
 
             
-                <div className="code-block-inner" ref={clipboardValue}>
+                <div className="code-block-inner code" ref={clipboardValue}>
 
                     <a className="clipboard-button" onClick={handleClick}>
                         <p className="clipboard-label utility">{copyState}</p>
@@ -70,7 +70,7 @@ export default function CodeBlock(props) {
                     
                 </div>
 
-                <div className="code-info-block">
+                <div className="code-info-block code">
                     <p className="utility">{props.infoLabel}:</p>
                     <p className=""></p>
 
