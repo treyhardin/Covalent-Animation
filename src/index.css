@@ -61,6 +61,16 @@
 
 }
 
+@media screen and (max-width: 960px) {
+  :root {
+    /* Forms */
+    --field-height: 50px;
+
+    /* Buttons */
+    --button-height: var(--field-height);
+  }
+}
+
 
 /* Font Imports */
 
@@ -375,7 +385,7 @@ section {
 
 @media screen and (max-width: 960px) {
   section {
-    padding: calc(var(--page-padding) + var(--header-height)) var(--page-padding) var(--page-padding) var(--page-padding);
+    padding: calc(var(--size-m) + var(--header-height)) var(--size-m) var(--size-m) var(--size-m);
   }
 }
 
