@@ -1,4 +1,5 @@
 import { createContext, useState } from "react";
+import { useSearchParams } from "react-router-dom"
 
 export const GlobalContext = createContext();
 
@@ -6,11 +7,12 @@ export const GlobalContext = createContext();
 
 export const ContextProvider = ({children}) => {
     const root = document.documentElement;
+    let [searchParams, setSearchParams] = useSearchParams();
 
     const [settings, setSettings ] = useState ({
-        duration: 400,
-        style: 'fade',
-        easing: 'ease-in-out',
+        duration: searchParams.get('duration') || 400,
+        style: searchParams.get('style') || 'fade',
+        easing: searchParams.get('easing') || 'ease-in-out',
         refresh: true
     })
 
@@ -19,6 +21,13 @@ export const ContextProvider = ({children}) => {
             ...settings,
             [keyName] : value
         }
+
+        if (searchParams.has(keyName)) {
+            searchParams.set(keyName, value)
+        } else {
+            searchParams.append(keyName, value)
+        }
+        setSearchParams(searchParams);
         setSettings(newSettings);
     }
 
